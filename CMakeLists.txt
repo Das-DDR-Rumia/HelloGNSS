@@ -7,5 +7,8 @@ add_executable(main src/main.c)
 target_include_directories(main PRIVATE 
     ${CMAKE_SOURCE_DIR}/lib/RTKLIB/src
 )
-target_link_libraries(main PRIVATE rtklib winmm ws2_32)
+target_link_libraries(main PRIVATE rtklib)
 
+if(WIN32)
+    target_link_libraries(main PRIVATE winmm ws2_32)
+endif()
